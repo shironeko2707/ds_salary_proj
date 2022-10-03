@@ -14,13 +14,10 @@ def fetch_jobs(keyword, num_pages):
     #Enter your chromedriver.exe path below
     chrome_path = r"C:/Users/tungd/Documents/ds_salary_proj/chromedriver.exe"
     driver = webdriver.Chrome(executable_path=chrome_path, options=options)
-    driver.get("https://www.glassdoor.co.in/Job/Home/recentActivity.htm")
-    search_input = driver.find_element(By.ID,"sc.keyword")
-    search_input.send_keys(keyword)
-    search_input.send_keys(Keys.ENTER)
-    time.sleep(2)
-    
-    
+    url = "https://www.glassdoor.com/Job/jobs.htm?suggestCount=0&suggestChosen=false&clickSource=searchBtn&typedKeyword="+keyword+"&sc.keyword="+keyword+"&locT=&locId=&jobType="
+    #url = 'https://www.glassdoor.com/Job/jobs.htm?sc.keyword="' + keyword + '"&locT=C&locId=1147401&locKeyword=San%20Francisco,%20CA&jobType=all&fromAge=-1&minSalary=0&includeNoSalaryJobs=true&radius=100&cityId=-1&minRating=0.0&industryId=-1&sgocId=-1&seniorityType=all&companyId=-1&employerSizes=0&applicationType=0&remoteWorkType=0'
+    driver.get(url)
+   
     
     
     company_name = []
@@ -97,7 +94,7 @@ def fetch_jobs(keyword, num_pages):
                     pass
 
                 try:
-                    job_description.append(driver.find_elements(By.XPATH,"//div[@id='JobDescriptionContainer']").text)
+                    job_description.append(driver.find_elements(By.XPATH,"//div[@class='jobDescriptionContent desc']").text)
                 except:
                     job_description.append("#N/A")
                     pass
@@ -172,6 +169,4 @@ def fetch_jobs(keyword, num_pages):
     'company_industry' : company_industry, 'company_founded' : company_founded, 'company_revenue': company_revenue})
     
     df.to_csv(keyword + '.csv')
-                       
-                       
                        
