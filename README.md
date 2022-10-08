@@ -145,4 +145,4 @@ Linear Regression: MAE = 18.86
 Ridge Regression: MAE = 19.67
 Productionization
 In this step, I built a flask API endpoint that was hosted on a local webserver by following along with the TDS tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary.
->>>>>>> cf055045c5da520fb696d3203eace5c2706ea8e8
+
