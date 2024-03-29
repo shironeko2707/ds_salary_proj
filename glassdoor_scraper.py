@@ -12,7 +12,7 @@ def fetch_jobs(keyword, num_pages):
     options = Options()
     options.add_argument("window-size=1920,1080")
     #Enter your chromedriver.exe path below
-    chrome_path = r"C:/Users/tungd/Documents/ds_salary_proj/chromedriver.exe"
+    chrome_path = r"Your Chromium File Path Here"
     driver = webdriver.Chrome(executable_path=chrome_path, options=options)
     url = "https://www.glassdoor.com/Job/jobs.htm?suggestCount=0&suggestChosen=false&clickSource=searchBtn&typedKeyword="+keyword+"&sc.keyword="+keyword+"&locT=&locId=&jobType="
     #url = 'https://www.glassdoor.com/Job/jobs.htm?sc.keyword="' + keyword + '"&locT=C&locId=1147401&locKeyword=San%20Francisco,%20CA&jobType=all&fromAge=-1&minSalary=0&includeNoSalaryJobs=true&radius=100&cityId=-1&minRating=0.0&industryId=-1&sgocId=-1&seniorityType=all&companyId=-1&employerSizes=0&applicationType=0&remoteWorkType=0'
